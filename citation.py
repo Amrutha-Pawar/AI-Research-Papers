@@ -1,4 +1,9 @@
-import ollama
+from groq import Groq
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def generate_citation(text):
 
@@ -11,11 +16,11 @@ def generate_citation(text):
     {text[:2000]}
     """
 
-    response = ollama.chat(
-        model="phi3:mini",
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
         messages=[
-            {"role":"user","content":prompt}
+            {"role": "user", "content": prompt}
         ]
     )
 
-    return response["message"]["content"]
+    return response.choices[0].message.content

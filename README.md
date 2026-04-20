@@ -1,80 +1,89 @@
-AI Research Paper Assistant 📄🤖
+# AI Research Paper Assistant 📄🤖
 
 An AI-powered web application that helps researchers, students, and developers quickly understand research papers.
-The system allows users to upload a research paper (PDF) and automatically generate summaries, extract key insights, and interact with the paper using AI.
 
-This project integrates Natural Language Processing (NLP), Large Language Models (LLMs), and Semantic Search to assist with academic research.
+The system allows users to upload a research paper (PDF) and automatically generate **structured summaries, key insights, and interactive Q&A** using modern AI models.
 
-Project Overview
+This project integrates **Natural Language Processing (NLP), Large Language Models (LLMs), and Semantic Search** to simplify academic research.
+
+---
+
+## 🚀 Project Overview
 
 Reading research papers is time-consuming. This tool simplifies the process by:
 
-Extracting text from research papers
+* 📄 Extracting text from research papers
+* 🤖 Generating structured AI summaries
+* 📊 Highlighting key findings with data (percentages, stats)
+* 💡 Explaining important concepts
+* 💬 Allowing users to ask questions about the paper
 
-Generating AI summaries
+👉 The assistant acts like a **mini AI research analyst**.
 
-Identifying key contributions
+---
 
-Explaining important concepts
+## ✨ Features
 
-Allowing users to ask questions about the paper
+### 1. 📂 PDF Upload
 
-The assistant acts like a mini AI research analyst that helps understand complex academic papers quickly.
+Upload research papers in PDF format.
 
-Features
-1. PDF Upload
+### 2. 🧠 AI Generated Summary
 
-Users can upload research papers in PDF format.
+Generates:
 
-2. AI Generated Summary
+* Short summary
+* Key contributions
+* Important concepts
+* Data-driven insights
 
-The system automatically generates:
+### 3. 💬 Chat with Research Paper
 
-Short summary
+Ask questions like:
 
-Key contributions
+* What is the methodology used?
+* What are the key findings?
+* What problem does the paper solve?
 
-Important concepts
+### 4. 🔍 Semantic Search
 
-3. Chat with Research Paper
+* Uses vector embeddings + FAISS
+* Finds relevant sections from the document
 
-Users can ask questions such as:
+### 5. 📚 Literature Understanding
 
-What is the methodology used in this paper?
+* Explains complex research ideas in simple terms
 
-What are the key findings?
+### 6. 🧾 Citation Extraction
 
-What problem does the research solve?
+* Automatically generates APA/IEEE citations
 
-4. Semantic Search
+---
 
-The system performs vector-based search within the document to find relevant sections.
+## 🧠 System Architecture
 
-5. Literature Understanding
-
-AI helps explain difficult concepts and research ideas.
-
-6. Citation Extraction
-
-Automatically generates academic citations (APA/IEEE style).
-
-System Architecture
-
-Workflow of the system:
-
+```
 PDF Upload
       ↓
 PDF Text Extraction
       ↓
 Text Processing
       ↓
-AI Model (LLM)
+Vector Embeddings (FAISS)
       ↓
-Summary / Answer Generation
+LLM (Groq API)
       ↓
-User Interface (Streamlit)
-Project Structure
-AI-Research-Assistant
+Summary / Q&A / Insights
+      ↓
+Streamlit UI
+```
+
+---
+
+## 📁 Project Structure
+
+```
+AI-Research-Assistant/
 │
 ├── app.py
 ├── pdf_reader.py
@@ -83,155 +92,172 @@ AI-Research-Assistant
 ├── embeddings.py
 ├── citation.py
 │
-├── papers
-│
 ├── requirements.txt
-└── README.md
-Technologies Used
-Programming Language
+├── README.md
+└── .env (not included)
+```
 
-Python
+---
 
-Libraries and Tools
+## 🛠️ Technologies Used
 
-Streamlit (Web Interface)
+### 💻 Programming Language
 
-PyPDF (PDF text extraction)
+* Python
 
-Ollama (Local LLM execution)
+### 📚 Libraries & Tools
 
-Sentence Transformers
+* Streamlit (UI)
+* PyPDF (PDF extraction)
+* Sentence Transformers (embeddings)
+* FAISS (vector search)
+* NumPy
+* python-dotenv
 
-FAISS (Semantic Search)
+### 🤖 AI Model
 
-NumPy
+* Groq API (LLaMA 3.1 models)
 
-AI Model
+---
 
-Phi-3 Mini (via Ollama)
+## 🔥 Why Groq Instead of Ollama?
 
-Installation Guide
-1. Clone the Repository
-git clone https://github.com/yourusername/AI-Research-Assistant.git
-cd AI-Research-Assistant
-2. Create Virtual Environment
+| Feature       | Ollama ❌   | Groq ✅         |
+| ------------- | ---------- | -------------- |
+| Installation  | Required   | Not needed     |
+| Setup Time    | High       | Minimal        |
+| Speed         | Medium     | Very Fast ⚡    |
+| Accessibility | Local only | Works anywhere |
+
+---
+
+## 🔑 Setup Instructions
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/Amrutha-Pawar/AI-Research-Papers.git
+cd AI-Research-Papers
+```
+
+---
+
+### 2. Create Virtual Environment
+
+```bash
 python -m venv venv
+```
 
-Activate it:
+Activate:
 
-Windows
+**Windows**
 
+```bash
 venv\Scripts\activate
-3. Install Dependencies
+```
+
+---
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-Or install manually:
+---
 
-pip install streamlit pypdf ollama sentence-transformers faiss-cpu
-4. Install Ollama
+### 4. Add API Key
 
-Download and install Ollama from:
+Create a `.env` file:
 
-https://ollama.com
+```
+GROQ_API_KEY=your_api_key_here
+```
 
-5. Download AI Model
-ollama pull phi3:mini
-Running the Application
+👉 Get API key: https://console.groq.com
 
-Start the web application:
+---
 
+## ▶️ Run the Application
+
+```bash
 streamlit run app.py
+```
 
-Then open the browser:
+Open browser:
 
+```
 http://localhost:8501
+```
 
-Upload a research paper and start exploring the AI features.
+---
 
-Example Use Cases
-For Students
+## 📊 Example Output
 
-Quickly understand research papers
+The system generates structured insights such as:
 
-Generate summaries for assignments
+* 📌 Summary
+* 🎯 Research Objective
+* 📊 Key Findings (with percentages/data)
+* 💡 Contributions
+* 🌍 Real-world impact
 
-Understand difficult concepts
+---
 
-For Researchers
+## 🎯 Use Cases
 
-Speed up literature reviews
+### 👩‍🎓 For Students
 
-Extract insights from papers
+* Quickly understand research papers
+* Generate summaries for assignments
 
-For Developers
+### 🔬 For Researchers
 
-Learn about AI-powered document analysis systems
+* Speed up literature reviews
+* Extract insights efficiently
 
-Example Output
+### 👨‍💻 For Developers
 
-AI generates structured results such as:
+* Learn AI-powered document analysis
+* Build NLP-based applications
 
-Summary
+---
 
-Overview of the research problem
+## 🚀 Future Improvements
 
-Key findings of the paper
+* Multi-paper analysis
+* Research comparison tool
+* Automatic literature review generator
+* Knowledge graph visualization
+* Paper recommendation system
 
-Key Contributions
+---
 
-Main innovations of the research
+## 📚 Learning Outcomes
 
-Important Concepts
+This project demonstrates:
 
-Core ideas used in the study
+* Natural Language Processing
+* Large Language Models (LLMs)
+* Vector Search (FAISS)
+* AI-powered document processing
+* Full-stack AI application development
 
-Future Improvements
+---
 
-Planned enhancements:
+## 👩‍💻 Author
 
-Multi-paper analysis
-
-Research paper comparison
-
-Automatic literature review generation
-
-Knowledge graph of research topics
-
-Citation network visualization
-
-Research idea generator
-
-Paper recommendation system
-
-Learning Outcomes
-
-This project demonstrates knowledge of:
-
-Natural Language Processing
-
-Large Language Models
-
-Vector Search
-
-AI-powered document processing
-
-Python backend development
-
-AI web application development
-
-Author
-
-Pawar Amrutha
+**Pawar Amrutha**
 BTech Computer Science and Engineering
 
-Interests:
+### Interests:
 
-Artificial Intelligence
+* Artificial Intelligence
+* Web Development
+* AI-powered Applications
 
-Web Development
+---
 
-AI-powered Applications
-
-License
+## 📄 License
 
 This project is open-source and available for educational and research purposes.
